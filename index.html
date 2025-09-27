@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dilsae - Echoes of the Heart</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Fleur+De+Leah&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Playfair Display', serif;
+            color: #4b2e1e;
+            /* background: url('./background1.png') no-repeat; */
+            background-size: cover;
+        }
+
+        header {
+            background: linear-gradient(90deg, #f9dbe6, #fdebd3);
+            padding: 15px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        header img {
+            height: 70px;
+        }
+
+        nav a {
+            color: #4b2e1e !important;
+            font-weight: 500;
+            margin: 0 12px;
+            font-size: 2rem !important;
+        }
+
+        h2 {
+            font-family: 'Fleur De Leah', cursive;
+            font-size: 2.8rem;
+            color: #4b2e1e;
+            margin-bottom: 25px;
+        }
+
+        section {
+            padding: 80px 7%;
+        }
+
+        #home h1 {
+            font-family: 'Fleur De Leah', cursive;
+            font-size: 4rem;
+            color: #4b2e1e;
+        }
+
+        #home p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            max-width: 700px;
+        }
+
+        #home {
+            background: url('header.jpg') no-repeat center top;
+            background-size: contain;
+            /* show full image */
+            background-color: #ffd3d2;
+            /* fallback color for empty space */
+            min-height: 100vh;
+            /* at least full screen height */
+            width: 100%;
+        }
+
+        /* Ensure section grows with image height */
+        @media (max-width: 768px) {
+            #home {
+                min-height: auto;
+                /* let it expand naturally */
+                height: auto;
+            }
+        }
+
+        #about p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            max-width: 700px;
+        }
+
+        .product-card img {
+            border-radius: 15px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease;
+        }
+
+        .product-card img:hover {
+            transform: scale(1.05);
+        }
+
+        .hamper-landing-img {
+            width: 350px;
+            height: 430px;
+            cursor: pointer;
+        }
+
+        .carousel-item {
+            text-align: center;
+        }
+
+        .hamper-individual-img {
+            width: 600px;
+            height: 730px;
+            text-align: center;
+            border-radius: 30px;
+        }
+
+        .model-body-color {
+            background: linear-gradient(210deg, #cb55156b, #fff) !important;
+        }
+
+        .custom-made {
+            font-size: 1.8rem;
+            line-height: 1.8;
+        }
+
+        .coming-soon {
+            background: linear-gradient(135deg, #fdebd3, #f9dbe6);
+            border-radius: 15px;
+            padding: 40px;
+            margin-top: 50px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .item-description {
+            font-size: 1.3rem;
+        }
+
+        .img-disclaimer {
+            font-size: 0.8rem;
+            font-style: italic;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .coming-soon::before {
+            content: "❄️ 🎄 🎁";
+            font-size: 3rem;
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            opacity: 0.3;
+        }
+
+        #about img {
+            max-width: 350px;
+            border-radius: 20px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+        }
+
+        footer {
+            background: #4b2e1e;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        #contact .icon-link {
+            font-size: 4rem;
+            /* Bigger icons for stronger CTA */
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            display: inline-block;
+        }
+
+        #contact .icon-link:hover {
+            transform: scale(1.25);
+            opacity: 0.9;
+        }
+
+        #contact .contact-card {
+            /* background: #fff; */
+            border-radius: 14px;
+            padding: 25px 40px;
+            /* box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08); */
+            /* transition: transform 0.3s ease, box-shadow 0.3s ease; */
+        }
+
+        #contact .contact-card:hover {
+            transform: translateY(-6px);
+            /* box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15); */
+        }
+
+        .current-products {
+            background-color: #FAF0E0 !important;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="d-flex align-items-center">
+            <img src="./dilsae.jpeg" alt="Dilsae Logo">
+            <span class="ms-3 fs-2" style="font-family: 'Fleur De Leah', cursive; color:#4b2e1e;">Dilsae</span>
+        </div>
+        <nav class="nav">
+            <a class="nav-link" style="font-family: 'Fleur De Leah', cursive;" href="#home">Home</a>
+            <a class="nav-link" style="font-family: 'Fleur De Leah', cursive;" href="#products">Products</a>
+            <a class="nav-link" style="font-family: 'Fleur De Leah', cursive;" href="#about">About Us</a>
+            <a class="nav-link" style="font-family: 'Fleur De Leah', cursive;" href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Home Section -->
+
+    <section id="home" class="d-flex flex-column justify-content-center">
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="current-products">
+        <h2 class="text-center">Our Diwali Hampers</h2>
+        <div class="row g-5 mt-4">
+            <div class="col-md-4 product-card text-center">
+                <img src="./hamper1.jpeg" class="img-fluid hamper-landing-img" alt="Hamper 1" data-bs-toggle="modal"
+                    data-bs-target="#hamper1Modal">
+                <h5 class="mt-3">SACRED AURA HAMPER</h5>
+            </div>
+            <div class="col-md-4 product-card text-center">
+                <img src="./hamer2.jpeg" class="img-fluid hamper-landing-img" alt="Hamper 2" data-bs-toggle="modal"
+                    data-bs-target="#hamper2Modal">
+                <h5 class="mt-3">LUMINOUS CHARM HAMPER</h5>
+            </div>
+            <div class="col-md-4 product-card text-center">
+                <img src="./hamper3.jpeg" class="img-fluid hamper-landing-img" alt="Hamper 3" data-bs-toggle="modal"
+                    data-bs-target="#hamper3Modal">
+                <h5 class="mt-3">POCKETFUL OF JOY HAMPER</h5>
+            </div>
+        </div>
+        <br />
+        <section class="rounded mt-3" style="background: linear-gradient(22deg, #cbb115a6, #fff);">
+            <p class=" custom-made">Make every guests or customers feel treasured with custom bulk gifting for
+                weddings,
+                corporate
+                events, and celebrations — message <i><u>@dilsae.gift</u></i> on Instagram to get
+                started
+            </p>
+        </section>
+        <!-- Christmas Section -->
+        <div class="coming-soon mt-5 text-center">
+            <h2>✨ Christmas Hampers Coming Soon ✨</h2>
+            <img src="./christmas.png" alt="Christmas Hampers" class="img-fluid rounded mt-3" style="max-height:200px;">
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="row align-items-center">
+        <div class="col-md-6">
+            <h2>About Us</h2>
+            <p class="lead">
+                Dilsae was founded with the idea that a gift should be more than a box — it should be an experience.
+                Our
+                founders, driven by creativity and passion, blend artistry with thoughtful curation to bring you
+                hampers
+                that leave an everlasting impression.
+            </p>
+            <p class="lead">
+                With every hamper, we aspire to create a celebration of love, luxury, and attention to detail. Our
+                goal
+                is to make gifting personal, elegant, and truly memorable.
+            </p>
+            <p class="lead">
+                At Dilsae, we believe that every occasion deserves to be cherished, and every gesture should echo
+                the
+                warmth of the heart. From festive celebrations to intimate milestones, our collections are designed
+                to
+                capture emotions that words alone cannot express. Each hamper is a story — woven with care, crafted
+                with
+                sophistication, and destined to create moments that linger long after the gift is opened.
+            </p>
+
+        </div>
+        <div class="col-md-6 text-center">
+            <img src="./founders.jpeg" alt="Founders" class="img-fluid" style="max-width:50%;border-radius: 50%;">
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5" style="background: linear-gradient(135deg, #f8e6ec, #fff);">
+        <div class="container text-center">
+            <h2 class="fw-bold mb-3" style="color:#4a2c2a;">Contact Us</h2>
+            <p class="mb-2 fs-5 text-muted">We’d love to curate something special for you.</p>
+
+            <div class="d-flex justify-content-center gap-5 flex-wrap">
+                <!-- Instagram -->
+                <div class="contact-card">
+                    <a href="https://www.instagram.com/dilsae.gift?igsh=MXM5OGFqa2k4NWp4eA==" target="_blank"
+                        class="icon-link" style="color:#E1306C; font-size: 65px;">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <p class="mb-0 fw-semibold">Dilsae</p>
+                </div>
+
+                <!-- WhatsApp -->
+                <div class="contact-card">
+                    <a href="https://wa.me/917091345222" target="_blank" class="icon-link"
+                        style="color:#25D366; font-size: 65px;">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <p class="mb-0 fw-semibold">+91 7091 345 222</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="text-center text-white py-3" style="background-color: #4a2c2a;">
+        <div class="container">
+            <p class="mb-0">© 2025 Dilsae Gifting Solutions. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Hamper 1 Modal -->
+    <div class="modal fade" id="hamper1Modal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-body model-body-color">
+                    <div id="carouselHamper1" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-align carousel-item active">
+                                <p class="mt-3 item-description">Meet Sacred Aura - because gifts aren’t just things...
+                                    they’re feelings
+                                    waiting to be unwrapped.
+                                </p>
+                                <img class="hamper-individual-img" src="./hamper1.jpeg" class="d-block w-100"
+                                    alt="Hamper 1 - 1">
+                            </div>
+
+                            <div class="carousel-item">
+                                <p class="mt-3 item-description">1 terracotta Ganesha, hand-painted with devotion and
+                                    designed to be
+                                    cherished.
+                                </p>
+                                <img class="hamper-individual-img" src="./ganesh.jpg" class="d-block w-100"
+                                    alt="Hamper 1 - 2">
+                            </div>
+
+                            <div class="carousel-item">
+                                <p class="mt-3 item-description">2 round ethnic coasters bold enough to hold your chai,
+                                    funky enough to
+                                    start a conversation
+                                </p>
+                                <img class="hamper-individual-img" src="./rcoaster.jpg" class="d-block w-100"
+                                    alt="Hamper 1 - 3">
+                            </div>
+
+                            <div class="carousel-item">
+                                <p class="mt-3 item-description">2 delicious laddoo & 2 barfi shaped candles in a diya
+                                    box, a box of
+                                    festive mischief
+                                </p>
+                                <img class="hamper-individual-img" src="./mcandle.jpg" class="d-block w-100"
+                                    alt="Hamper 1 - 4">
+                            </div>
+
+                            <div class="carousel-item">
+                                <p class="mt-3 item-description">1 cassata carnival soap, rich in plant-based
+                                    goodness—cleansing with
+                                    care, delighting with every lather.
+                                </p>
+                                <img class="hamper-individual-img" src="./csoap.jpg" class="d-block w-100"
+                                    alt="Hamper 1 - 5">
+                            </div>
+
+                            <div class="carousel-item">
+                                <p class="mt-3 item-description">1 rose wardrobe freshener—infusing linens with
+                                    fragrance that becomes
+                                    memory
+                                </p>
+                                <img class="hamper-individual-img" src="./wfreshner.jpg" class="d-block w-100"
+                                    alt="Hamper 1 - 6">
+                            </div>
+
+                            <div class="carousel-item">
+                                <p class="mt-3 item-description">1 personalized card meant to comfort or simply remind
+                                    someone they’re
+                                    deeply valued
+                                </p>
+                                <img class="hamper-individual-img" src="./card.jpeg" class="d-block w-100"
+                                    alt="Hamper 1 - 7">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselHamper1"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon"></span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselHamper1"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon"></span>
+                        </button>
+                    </div>
+                    <p class="img-disclaimer">Images are for representation purposes only. Actual products,
+                        packaging, and counts
+                        may vary. For details, please DM us on Instagram @dilsae.gift.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hamper 2 Modal -->
+    <div class="modal fade" id="hamper2Modal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-body model-body-color">
+                    <div id="carouselHamper2" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <p class="mt-3 item-description">Meet Luminous Charm - crafted to glow with intention …
+                                    each piece
+                                    radiates a charm that feels personal.
+                                </p>
+                                <img class="hamper-individual-img" src="./hamer2.jpeg" class="d-block w-100"
+                                    alt="Hamper 2 - 1">
+                            </div>
+
+                            <div class="carousel-item">
+                                <p class="mt-3 item-description">2 delicious laddoo & 2 barfi shaped candles in a diya
+                                    box, a box of
+                                    festive mischief
+                                </p>
+                                <img class="hamper-individual-img" src="./mcandle.jpg" class="d-block w-100"
+                                    alt="Hamper 2 - 2">
+                            </div>
+
+                            <div class="carousel-item">
+                                <p class="mt-3 item-description">2 paraffin free aqua fragrance candles to gift a breath
+                                    of oceanic calm
+                                </p>
+                                <img class="hamper-individual-img" src="./bcandle.jpg" class="d-block w-100"
+                                    alt="Hamper 2 - 3">
+                            </div>
+
+                            <div class="carousel-item">
+                                <p class="mt-3 item-description">2 Moroccan styled coasters to frame each sip with
+                                    handcrafted beauty
+                                </p>
+                                <img class="hamper-individual-img" src="./mcandle.jpg" class="d-block w-100"
+                                    alt="Hamper 2 - 4">
+                            </div>
+
+                            <div class="carousel-item">
+                                <p class="mt-3 item-description">1 rose wardrobe fresher to turn closets into quiet
+                                    gardens
+                                </p>
+                                <img class="hamper-individual-img" src="./wfreshner.jpg" class="d-block w-100"
+                                    alt="Hamper 2 - 5">
+                            </div>
+
+                            <div class="carousel-item">
+                                <p class="mt-3 item-description">1 personalized card meant to comfort or simply remind
+                                    someone they’re
+                                    deeply valued
+                                </p>
+                                <img class="hamper-individual-img" src="./card.jpeg" class="d-block w-100"
+                                    alt="Hamper 2 - 6">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselHamper2"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon"></span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselHamper2"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon"></span>
+                        </button>
+                    </div>
+                    <p class="img-disclaimer">Images are for representation purposes only. Actual products,
+                        packaging, and counts
+                        may vary. For details, please DM us on Instagram @dilsae.gift.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hamper 3 Modal -->
+    <div class="modal fade" id="hamper3Modal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-body model-body-color">
+                    <div id="carouselHamper3" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <p class="mt-3 item-description">Meet Pocketful of Joy - for those who believe that the
+                                    smallest gestures
+                                    often carry the deepest meaning
+                                </p>
+                                <img class="hamper-individual-img" src="./hamper3.jpeg" class="d-block w-100"
+                                    alt="Hamper 3 - 1">
+                            </div>
+
+                            <div class="carousel-item">
+                                <p class="mt-3 item-description">2 delicious laddoo & 2 barfi shaped candles in a diya
+                                    box, a box of
+                                    festive mischief
+                                </p>
+                                <img class="hamper-individual-img" src="./mcandle.jpg" class="d-block w-100"
+                                    alt="Hamper 3 - 2">
+                            </div>
+
+                            <div class="carousel-item">
+                                <p class="mt-3 item-description">1 terracotta Ganesha, hand-painted with devotion and
+                                    designed to be
+                                    cherished
+                                </p>
+                                <img class="hamper-individual-img" src="./ganesh.jpg" class="d-block w-100"
+                                    alt="Hamper 3 - 3">
+                            </div>
+
+                            <div class="carousel-item">
+                                <p class="mt-3 item-description">1 personalized card meant to comfort or simply remind
+                                    someone they’re
+                                    deeply valued
+                                </p>
+                                <img class="hamper-individual-img" src="./card.jpeg" class="d-block w-100"
+                                    alt="Hamper 3 - 4">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselHamper3"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon"></span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselHamper3"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon"></span>
+                        </button>
+                    </div>
+                    <p class="img-disclaimer">Images are for representation purposes only. Actual products,
+                        packaging, and counts
+                        may vary. For details, please DM us on Instagram @dilsae.gift.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
